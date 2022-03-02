@@ -1,19 +1,22 @@
 extends Node2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var weapon = get_node("DebugDeagle")
+onready var mousepos = Vector2()
+onready var pos = Vector2()
+var rot
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	mousepos = get_global_mouse_position()
+	pos = global_position
+	
 	look_at(get_global_mouse_position())
-	if rotation_degrees > 90 && rotation_degrees <270:
-		get_node("DebugDeagle").set_flip_v(true)
-	elif rotation_degrees < 90 && rotation_degrees < 0 || rotation_degrees > 270 && rotation_degrees < 360:
-		get_node("DebugDeagle").set_flip_v(false)
+	
+	rot = rad2deg((mousepos - pos).angle())
+	
+	print(rot)
+	
+	if(rot >= -90 and rot <=90):
+		weapon.set_flip_v(false)
+	else:
+		weapon.set_flip_v(true)

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Placeholder Resources/World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Placeholder Resources/Bob/Bob.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Placeholder Resources/World/Ground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Placeholder Resources/Bob's Base thing/Bob's Base Thing.tscn" type="PackedScene" id=3]
 
 [node name="World" type="YSort"]
 __meta__ = {
@@ -10,31 +10,21 @@ __meta__ = {
 }
 
 [node name="Bob" parent="." instance=ExtResource( 2 )]
-position = Vector2( 136, 56 )
 
 [node name="Bush" parent="." instance=ExtResource( 1 )]
-position = Vector2( 64, 40 )
+position = Vector2( 32, -104 )
 
 [node name="Bush2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 48, 72 )
+position = Vector2( 80, -56 )
 
-[node name="Bush3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 80, 96 )
+[node name="Bob\'s Base Thing" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -192 )
 
-[node name="Bush4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 48, 112 )
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 0, -192 )
 
-[node name="Bush5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 200, 88 )
-
-[node name="Bush6" parent="." instance=ExtResource( 1 )]
-position = Vector2( 184, 64 )
-
-[node name="Bush7" parent="." instance=ExtResource( 1 )]
-position = Vector2( 160, 24 )
-
-[node name="Bush8" parent="." instance=ExtResource( 1 )]
-position = Vector2( 160, 112 )
-
-[node name="Ground" parent="." instance=ExtResource( 3 )]
-position = Vector2( 128, -128 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 0, 192 )
+rotation = 3.14159
+scale = Vector2( 10.1054, 5.89 )
+polygon = PoolVector2Array( 14.2498, -1.35823, 11.8748, -4.0747, 15.0414, -6.79117 )

@@ -39,5 +39,5 @@ func _physics_process(delta):
 		###Friction Movement
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	#Fixing Velocity
-	print(velocity)
+	
 	velocity = move_and_slide(velocity)

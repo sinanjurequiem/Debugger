@@ -41,3 +41,11 @@ func _physics_process(delta):
 	#Fixing Velocity
 	
 	velocity = move_and_slide(velocity)
+
+#Teleporter Checker
+func handle_collision(collision):
+	if Input.is_action_pressed("ui_interact"):
+		var col = collision.collider
+		if col.get_parent().name == "OpenWorldTeleporter":  
+			var newscene = "res://Placeholder Resources/OpenWorld/OpenWorld.tscn"
+			get_tree().change_scene(newscene)
